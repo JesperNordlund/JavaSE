@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.1" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="com.iftac.jnordlund.lab2.MovieSorter" project="JavaSE_lab2" 
+    file="/JavaSE_lab2/src/com/iftac/jnordlund/lab2/MovieSorter.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="142" width="195" x="569" y="151"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="com.iftac.jnordlund.lab2.Movie" project="JavaSE_lab2" 
+    file="/JavaSE_lab2/src/com/iftac/jnordlund/lab2/Movie.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="466" width="251" x="804" y="333"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="com.iftac.jnordlund.lab2.Lab2Main" project="JavaSE_lab2" 
+    file="/JavaSE_lab2/src/com/iftac/jnordlund/lab2/Lab2Main.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="106" width="130" x="1046" y="151"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="com.iftac.jnordlund.lab2.MovieList" project="JavaSE_lab2" 
+    file="/JavaSE_lab2/src/com/iftac/jnordlund/lab2/MovieList.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="124" width="202" x="804" y="151"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="com.iftac.jnordlund.lab2.FileReader" project="JavaSE_lab2" 
+    file="/JavaSE_lab2/src/com/iftac/jnordlund/lab2/FileReader.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="142" width="198" x="1216" y="151"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="6">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="7" name="movieList">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="8" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

@@ -1,0 +1,12 @@
+Twins Arnold_Schwarzenegger 1988 0 null null]
+
+Commando Arnold_Schwarzenegger 1985 90 6,7 Mark_l_Lester]
+
+Dr_Strange Bennedict_Cumberbatch 2016 0 null null]
+
+Harry_Potter_and_the_sorcerer_stone Daniel_Radcliffe 2001 152 7,5 Chris_Columbus]
+
+The_Island_of_dr_Moreau Marlon_Brando 1996 0 null null]
+
+The_Godfather Marlon_Brando 1972 175 9,2 Francis_Ford_Coppola]
+
