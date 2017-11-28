@@ -2,7 +2,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 
 // Notice, do not import com.mysql.jdbc.*
@@ -21,39 +20,64 @@ public class LoadDriver {
         
         Connection connection = null;
         
-        try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost/northwind?" +
+        // Skapar connection till databasen
+        connection = DriverManager.getConnection("jdbc:mysql://localhost/northwind?" +
                                            "user=root&password=123456&useSSL=false");
-
-            // Do something with the Connection
-
-           
-        } catch (SQLException ex) {
-            // handle any errors
-            System.out.println("SQLException: " + ex.getMessage());
-            System.out.println("SQLState: " + ex.getSQLState());
-            System.out.println("VendorError: " + ex.getErrorCode());
-        }
         
+        // Instansierar ett GetData objekt
         GetData getData = new GetData(connection);
         
-        Statement stmt = connection.createStatement();
+        // Listar alla anställda
+        ResultSet allEmployees = getData.getEmployees();
 	    
-	    ResultSet result = stmt.executeQuery("SELECT EmployeeID, FirstName, LastName, Birthdate FROM employees");
-	    
-	    while(result.next())
-	    {
-	    	System.out.println(result.getString("EmployeeID") + " " + result.getString("FirstName") + " " + result.getString("LastName") + " " + result.getDate("BirthDate"));//or getString(1) for coloumn 1 etc
+	    while(allEmployees.next())	{
+	    	
+	    	System.out.println(
+	    			allEmployees.getString("EmployeeID") + " " +
+	    			allEmployees.getString("FirstName") + " " +
+	    			allEmployees.getString("LastName") + " " +
+	    			allEmployees.getDate("BirthDate"));
 	    }
         
         System.out.println("\nVad var det totala ordervärdet som\r\n" +
-        		"skeppades med Federal Shipping under 1997?\n" + getData.getCompanyOrderTotal("Federal Shipping", 1997) + " SEK\n");
+        		"skeppades med Federal Shipping under 1997?\n" +
+        		getData.getCompanyOrderTotal("Federal Shipping", 1997) + " SEK\n");
         
-        String customer = "HANAR";
+        // Listar order för vald customer
+        String customer = "VICTE";
         ResultSet allOrders = getData.showAllOrders(customer);
         
-        while(allOrders.next())
+        while(allOrders.next()) {
         
-        System.out.println(allOrders.getString("OrderID") + " " + allOrders.getString("CustomerID") + " " + allOrders.getDate("OrderDate") + " " + allOrders.getString("Total"));
+        	System.out.println(
+        			allOrders.getString("OrderID") + " " +
+        			allOrders.getString("CustomerID") + " " +
+        			allOrders.getDate("OrderDate") + " " +
+        			allOrders.getString("SummaMedRabatt"));
+        }
+        
+        // Söker produkter
+        String category = "Condiments";
+        String searchString = "b";
+        int maxPrice = 30;
+        int unitsInStock = 75;
+        
+        
+        ResultSet productSearchSet = getData.getProducts(category, searchString, maxPrice, unitsInStock);
+        
+        System.out.println("\nSökresultat:\n");
+        
+        while(productSearchSet.next()) {
+        	
+        	System.out.println(
+        			productSearchSet.getString("ProductID") + " " +
+        			productSearchSet.getString("ProductName") + " " +
+        			productSearchSet.getString("ProductName") + " " +
+        			productSearchSet.getString("UnitPrice") + " " +
+        			productSearchSet.getString("UnitsInStock"));
+        	
+        }
+        
+    
     }
 }
