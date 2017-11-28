@@ -72,7 +72,7 @@ public class LoadDriver {
         	System.out.println(
         			productSearchSet.getString("ProductID") + " " +
         			productSearchSet.getString("ProductName") + " " +
-        			productSearchSet.getString("ProductName") + " " +
+        			productSearchSet.getString("CategoryName") + " " +
         			productSearchSet.getString("UnitPrice") + " " +
         			productSearchSet.getString("UnitsInStock"));
         	
