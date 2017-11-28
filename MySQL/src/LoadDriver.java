@@ -73,8 +73,8 @@ public class LoadDriver {
         			productSearchSet.getString("ProductID") + " " +
         			productSearchSet.getString("ProductName") + " " +
         			productSearchSet.getString("CategoryName") + " " +
-        			productSearchSet.getInt("UnitPrice") + " " +
-        			productSearchSet.getInt("UnitsInStock"));
+        			productSearchSet.getInt("UnitPrice") + "kr " +
+        			productSearchSet.getInt("UnitsInStock") + "st");
         	
         }
         
