@@ -14,10 +14,10 @@ public class MainTestClass {
     	// Instansierar ny NorthwindConnectionFactory
     	NorthwindConnectionFactory nwcf = new NorthwindConnectionFactory();
         
-    	Connection connection = nwcf.getConnection();
+    	Connection northwindConnection = nwcf.getConnection();
         
         // Instansierar ett GetData objekt
-        GetDataNorthwind getData = new GetDataNorthwind(connection);
+        GetDataNorthwind getData = new GetDataNorthwind(northwindConnection);
         
         // Listar alla anställda
         ResultSet allEmployees = getData.getEmployees();
@@ -57,7 +57,7 @@ public class MainTestClass {
         
         ResultSet productSearchSet = getData.getProducts(category, searchString, maxPrice, unitsInStock);
         
-        System.out.println("\nSökresultat:\n");
+        System.out.println("\nSökresultat:");
         
         while(productSearchSet.next()) {
         	
@@ -74,12 +74,34 @@ public class MainTestClass {
         
         PersonalDAO personalDAO = new PersonalDAO(new PersonalConnectionFactory());
         
-        Personal personal = personalDAO.getById(7313);
+        Personal personal = personalDAO.getById(1);
         System.out.println("\nFound:\n" + personal.toString());
+        
+        // Personaltest addById
+        
+        personalDAO.addById("Jesper Nordlund", "Utvecklare", 128);
+        
+        System.out.println("\nAdded to database:\n" + personalDAO.getById(5).toString());
+        
+        
+        personalDAO.deleteById(4);
         
         // Personaltest updateById
         
-        //System.out.println("\nUpdated:\n" + personal.toString());
+        personalDAO.updateNameById(1, "Lina Nilsson");
+        System.out.println("\nUpdated in database:\n" + personalDAO.getById(1).toString());
+        
+        // Transfer 100kr from acount 1 to account 2
+        
+        BankConnectionFactory bankConnectionFactory = new BankConnectionFactory();
+        
+        
+        MoneyDAO moneyDAO = new MoneyDAO(bankConnectionFactory);
+        
+        moneyDAO.getEverything();
+        moneyDAO.transfer(100, 1, 2);
+        moneyDAO.getEverything();
+        
         
         }catch(SQLException ex) {
         	System.out.println("SQLException: " + ex.getMessage());

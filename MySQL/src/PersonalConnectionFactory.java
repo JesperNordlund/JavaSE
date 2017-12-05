@@ -5,6 +5,8 @@ import java.sql.SQLException;
 public class PersonalConnectionFactory implements ConnectionFactory{
 
 		
+		private static PersonalConnectionFactory instance;
+
 		static{
 			 try {
 		         // The newInstance() call is a work around for some
@@ -31,6 +33,13 @@ public class PersonalConnectionFactory implements ConnectionFactory{
 				return null;
 		
 	}
+			
+			public static synchronized PersonalConnectionFactory getInstance(){
+		        if(instance == null){
+		            instance = new PersonalConnectionFactory();
+		        }
+		        return instance;
+		    }
 
 		
 }
